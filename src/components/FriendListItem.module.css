@@ -1,0 +1,41 @@
+.list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    margin-top: 50px;
+}
+
+.item{
+    width: 90px;
+    height: 150px;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+.avatar{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    height: 70px;
+    width: 70px;
+}
+.name{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+}
+.online{
+    color: green;
+    font-size: 16px;
+    text-align: center;
+}
+
+.offline{
+    color: crimson;
+    font-size: 16px;
+    text-align: center;
+}
