@@ -1,26 +1,25 @@
 import styles from './Feedback.module.css';
 
-export default function Feedback () {
-    const updateFeedback = (good, bad, neutral) => {
+export default function Feedback ({good, neutral, bad}) {
        
         return (
             <>
             <ul className = {styles.list}>
             <li className={styles.wrap}>
-                {good}Good: 0
+               Good:{good}
             </li>
             <li className={styles.wrap}>
-                {neutral}Neutral: 0
+                Neutral:{neutral} 
             </li>
             <li className={styles.wrap}>
-                {bad}Bad: 0
+                Bad:{bad} 
                 </li>
          </ul>
             </>
         )
        }
 
-}
+
 
 
 
