@@ -2,7 +2,7 @@ import styles from './App.module.css';
 import Feedback from './Feedback.jsx'; 
 import Options from './Options.jsx';
 import Notification from './Notification.jsx';
-import { useState,  } from 'react';
+import { useState,  useEffect } from 'react';
 
 export default function App () {
      const [feedback, setFeedback] = 
@@ -30,6 +30,10 @@ export default function App () {
      }
      const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
+     useEffect(() => {
+      window.localStorage.setItem("saved-clicks", JSON.parse(updateFeedback));
+    },);
+    
   return (
     <>
     <div className={styles.container}>
