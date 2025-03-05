@@ -1,8 +1,8 @@
-import styles from './App.module.css';
 import Feedback from './Feedback.jsx'; 
 import Options from './Options.jsx';
 import Notification from './Notification.jsx';
 import { useState,  useEffect } from 'react';
+import Description from './Description.jsx';
 
 export default function App () {
   const [feedback, setFeedback] = useState(() =>{
@@ -41,10 +41,8 @@ export default function App () {
     
   return (
     <>
-    <div className={styles.container}>
-      <h1 className={styles.title}>Sip Happens Café</h1>
-      <p className={styles.comment}>Please leave your feedback about our service by selecting one of the options below.</p>
-    </div>
+         <Description/>
+         
           < Options 
           updateFeedback={updateFeedback}
           resetFeedback={resetFeedback}
