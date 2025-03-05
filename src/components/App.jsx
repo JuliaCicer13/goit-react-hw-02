@@ -5,13 +5,13 @@ import Notification from './Notification.jsx';
 import { useState,  useEffect } from 'react';
 
 export default function App () {
-     const [feedback, setFeedback] = 
-     useState({
-         good: 0,
-         neutral: 0,
-         bad: 0
-     });
-
+  const [feedback, setFeedback] = useState(() =>{
+    const savedFeedback =
+    localStorage.getItem("feedback");
+    return savedFeedback ?
+    JSON.parse(savedFeedback) : {good: 0, neutral: 0, bad: 0};
+  });
+   
      const updateFeedback =
      (feedbackType) => {
       setFeedback((prevFeedback) => ({
@@ -30,9 +30,14 @@ export default function App () {
      }
      const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
+     const positiveFeedback =
+     totalFeedback > 0 ?
+     Math.round((feedback.good / totalFeedback) * 100) : 0;
+
      useEffect(() => {
-      window.localStorage.setItem("saved-clicks", JSON.parse(updateFeedback));
-    },);
+
+      localStorage.setItem("feedback", JSON.stringify(feedback));
+    }, [feedback]);
     
   return (
     <>
@@ -50,7 +55,10 @@ export default function App () {
       <Feedback
       good={feedback.good}
       neutral={feedback.neutral}
-      bad={feedback.bad} />
+      bad={feedback.bad}
+      total={totalFeedback}
+      positive={positiveFeedback} 
+      />
        
        ) : (
 
